@@ -18,13 +18,13 @@ from YukkiMusic.utils.database import add_sudo, remove_sudo
 from YukkiMusic.utils.decorators.language import language
 
 # Command
-ADDSSUDO_COMMAND = get_command("ADDSSUDO_COMMAND")
+ADDSUDO_COMMAND = get_command("ADDSUDO_COMMAND")
 DELSUDO_COMMAND = get_command("DELSUDO_COMMAND")
-SSUDOUSERS_COMMAND = get_command("SSUDOUSERS_COMMAND")
+SUDOUSERS_COMMAND = get_command("SUDOUSERS_COMMAND")
 
 
 @app.on_message(
-    filters.command(ADDSSUDO_COMMAND) & filters.user(OWNER_ID)
+    filters.command(ADDSUDO_COMMAND) & filters.user(OWNER_ID)
 )
 @language
 async def useradd(client, message: Message, _):
@@ -76,7 +76,7 @@ async def useradd(client, message: Message, _):
 async def userdel(client, message: Message, _):
     if MONGO_DB_URI is None:
         return await message.reply_text(
-            "**Due to bot's privacy issues, You can't manage sudo users when you're using Yukki's Database.\n\n Please fill your MONGO_DB_URI in your vars to use this feature**"
+            "**Due to bot's privacy issues, You can't manage sudo users when you're using Kuramas Database.\n\n Please fill your MONGO_DB_URI in your vars to use this feature**"
         )
     if not message.reply_to_message:
         if len(message.command) != 2:
