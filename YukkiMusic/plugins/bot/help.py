@@ -25,11 +25,11 @@ from YukkiMusic.utils.inline.help import (help_back_markup,
                                           private_help_panel)
 
 ### Command
-HELP_COMMAND = get_command("HELP_COMMAND")
+HELP_COMMAND = get_command("HHELP_COMMAND")
 
 
 @app.on_message(
-    filters.command(HELP_COMMAND)
+    filters.command(HHELP_COMMAND)
     & filters.private
     & ~filters.edited
     & ~BANNED_USERS
