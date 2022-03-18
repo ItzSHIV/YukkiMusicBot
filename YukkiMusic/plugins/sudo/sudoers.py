@@ -18,13 +18,13 @@ from YukkiMusic.utils.database import add_sudo, remove_sudo
 from YukkiMusic.utils.decorators.language import language
 
 # Command
-ADDSUDO_COMMAND = get_command("ADDSUDO_COMMAND")
+ADDSSUDO_COMMAND = get_command("ADDSSUDO_COMMAND")
 DELSUDO_COMMAND = get_command("DELSUDO_COMMAND")
-SUDOUSERS_COMMAND = get_command("SUDOUSERS_COMMAND")
+SSUDOUSERS_COMMAND = get_command("SSUDOUSERS_COMMAND")
 
 
 @app.on_message(
-    filters.command(ADDSUDO_COMMAND) & filters.user(OWNER_ID)
+    filters.command(ADDSSUDO_COMMAND) & filters.user(OWNER_ID)
 )
 @language
 async def useradd(client, message: Message, _):
@@ -105,7 +105,7 @@ async def userdel(client, message: Message, _):
     await message.reply_text(f"Something wrong happened.")
 
 
-@app.on_message(filters.command(SUDOUSERS_COMMAND) & ~BANNED_USERS)
+@app.on_message(filters.command(SSUDOUSERS_COMMAND) & ~BANNED_USERS)
 @language
 async def sudoers_list(client, message: Message, _):
     text = _["sudo_5"]
