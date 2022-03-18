@@ -27,12 +27,12 @@ from YukkiMusic.utils.database import (add_banned_user,
 from YukkiMusic.utils.decorators.language import language
 
 # Command
-GGBAN_COMMAND = get_command("GGBAN_COMMAND")
-UUNGBAN_COMMAND = get_command("UUNGBAN_COMMAND")
-GGBANNED_COMMAND = get_command("GGBANNED_COMMAND")
+GBAN_COMMAND = get_command("GBAN_COMMAND")
+UNGBAN_COMMAND = get_command("UNGBAN_COMMAND")
+GBANNED_COMMAND = get_command("GBANNED_COMMAND")
 
 
-@app.on_message(filters.command(GGBAN_COMMAND) & SUDOERS)
+@app.on_message(filters.command(GBAN_COMMAND) & SUDOERS)
 @language
 async def gbanuser(client, message: Message, _):
     if not message.reply_to_message:
@@ -81,7 +81,7 @@ async def gbanuser(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(UUNGBAN_COMMAND) & SUDOERS)
+@app.on_message(filters.command(UNGBAN_COMMAND) & SUDOERS)
 @language
 async def gungabn(client, message: Message, _):
     if not message.reply_to_message:
@@ -124,7 +124,7 @@ async def gungabn(client, message: Message, _):
     await mystic.delete()
 
 
-@app.on_message(filters.command(GGBANNED_COMMAND) & SUDOERS)
+@app.on_message(filters.command(GBANNED_COMMAND) & SUDOERS)
 @language
 async def gbanned_list(client, message: Message, _):
     counts = await get_banned_count()
