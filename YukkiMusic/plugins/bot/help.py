@@ -25,7 +25,7 @@ from YukkiMusic.utils.inline.help import (help_back_markup,
                                           private_help_panel)
 
 ### Command
-HELP_COMMAND = get_command("HHELP_COMMAND")
+HHELP_COMMAND = get_command("HHELP_COMMAND")
 
 
 @app.on_message(
